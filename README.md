@@ -165,9 +165,7 @@ Total: 10 class periods
   - Topic 9.4: super Keyword (1 class period)
 - **12/20/2024 (Fri)**
   - Topic 9.5: Creating References Using Inheritance Hierarchies (1 class period)
-  - Topic 9.6: Pol
-
-ymorphism (1 class period)
+  - Topic 9.6: Polymorphism (1 class period)
 - **01/06/2025 (Mon)**
   - Topic 9.7: Object Superclass (1 class period)
   - Review and Practice (1 class period)
