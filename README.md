@@ -7,6 +7,9 @@
 
 [Scratch for middle school](https://www.codewizardshq.com/scratch-project-ideas/)
 
+
+[Html preview](https://htmlviewer.github.io/)
+
 ### Unit 1: Primitive Types (~8-10 Class Periods)
 - **08/26/2024 (Mon)**
   - Topic 1.1: Why Programming? Why Java? (1 class period)
