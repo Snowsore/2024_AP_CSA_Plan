@@ -5,7 +5,7 @@
 [Java Online Compiler](https://www.onlinegdb.com/online_java_compiler) 
 
 
-[Scratch for middle school]([https://www.onlinegdb.com/online_java_compiler](https://www.codewizardshq.com/scratch-project-ideas/)) 
+[Scratch for middle school](https://www.codewizardshq.com/scratch-project-ideas/)
 
 ### Unit 1: Primitive Types (~8-10 Class Periods)
 - **08/26/2024 (Mon)**
