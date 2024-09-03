@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页问候语</title>
+</head>
+<body>
+    <h1 id="greeting"></h1>
+
+    <script>
+        // 获取当前小时
+        const now = new Date();
+        const hour = now.getHours();
+
+        // 根据时间生成问候语
+        let greetingMessage;
+        if (hour < 12) {
+            greetingMessage = "早上好！";
+        } else if (hour < 18) {
+            greetingMessage = "下午好！";
+        } else {
+            greetingMessage = "晚上好！";
+        }
+
+        // 将问候语显示在页面上
+        document.getElementById("greeting").innerText = greetingMessage;
+    </script>
+</body>
+</html>
+    

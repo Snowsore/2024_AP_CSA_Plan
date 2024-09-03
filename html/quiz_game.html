@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互动问答游戏</title>
+</head>
+<body>
+    <h1>问答游戏</h1>
+    <p>问题：世界上最高的山峰是什么？</p>
+    <input type="text" id="answer" placeholder="输入你的答案">
+    <button onclick="checkAnswer()">提交</button>
+    <p id="result"></p>
+
+    <script>
+        function checkAnswer() {
+            // 获取用户输入的答案
+            const answer = document.getElementById("answer").value.toLowerCase();
+
+            // 检查答案是否正确
+            if (answer === "everest" || answer === "珠穆朗玛峰") {
+                document.getElementById("result").innerText = "正确！";
+            } else {
+                document.getElementById("result").innerText = "错误，请再试一次。";
+            }
+        }
+    </script>
+</body>
+</html>
+    
