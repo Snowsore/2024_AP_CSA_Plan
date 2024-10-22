@@ -196,6 +196,7 @@
       <a onclick="showContent('features')">Features</a>
       <a onclick="showContent('about')">About</a>
       <a onclick="showContent('modal')">Modal</a>
+     <a href="http://www.naver.com">Naver</a>
     </div>
 
     <div class="main">
@@ -203,6 +204,7 @@
         <a href="#" onclick="alert('Hello~~')">Alert Hello</a>
         <a href="#" onclick="confirm('Do you love Chocolate?')">Question</a>
         <a href="#" onclick="location.reload(true)">Refresh</a>
+       <a href="#" onclick="">Give me water</a>
       </div>
 
       <div class="content">
@@ -241,6 +243,11 @@
                 <td>$1.00</td>
                 <td>20</td>
               </tr>
+              <tr>
+                <td>IPhone 100 Super</td>
+                <td>$1900.00</td>
+                <td>20</td>
+              </tr>
             </tbody>
           </table>
 
@@ -257,7 +264,6 @@
 
             <label for="itemPrice">Price ($):</label>
             <input
-              type="number"
               id="itemPrice"
               placeholder="Enter item price"
               step="0.01"
@@ -265,7 +271,6 @@
 
             <label for="itemQuantity">Quantity:</label>
             <input
-              type="number"
               id="itemQuantity"
               placeholder="Enter item quantity"
             /><br />
@@ -283,6 +288,11 @@
               <option value="Canada">Canada</option>
               <option value="Japan">Japan</option>
               <option value="Germany">Germany</option>
+              <option value="Korea">Korea</option>
+              <option value="China">China</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="9999">10+</option>
             </select>
           </div>
 
@@ -398,10 +408,7 @@
         const itemPrice = document.getElementById("itemPrice").value;
         const itemQuantity = document.getElementById("itemQuantity").value;
 
-        if (!itemName || !itemPrice || !itemQuantity) {
-          alert("Please fill out all fields.");
-          return;
-        }
+
 
         if (itemName.length < 3) {
           alert("Item name must be at least 3 characters long.");
@@ -448,12 +455,18 @@
         document.getElementById("counterDisplay").textContent = counter;
       }
 
-      (async () => {
-        const res = await fetch("/counter");
-        const json = await res.json();
+      async function refreshCounter() {
+          const res = await fetch("/counter");
+          const json = await res.json();
 
-        document.getElementById("counter").innerHTML = json.counter;
-      })();
+          document.getElementById("counter").innerHTML = json.counter;
+      }
+
+      refreshCounter()
+
+      // setInterval(() => {
+      //   refreshCounter()
+      // }, 1000)
     </script>
   </body>
 </html>
