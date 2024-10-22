@@ -15,7 +15,6 @@ const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
   const query = parsedUrl.query;
 
-
   if (parsedUrl.pathname == "/") {
     fs.readFile(filePath, (err, data) => {
       if (err) return;
@@ -39,7 +38,6 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  console.log(parsedUrl.pathname)
   if (parsedUrl.pathname == "/clicker") {
     fs.readFile(clickerFilePath, (err, data) => {
       if (err) return;
