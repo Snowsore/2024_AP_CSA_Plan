@@ -196,7 +196,7 @@
       <a onclick="showContent('features')">Features</a>
       <a onclick="showContent('about')">About</a>
       <a onclick="showContent('modal')">Modal</a>
-     <a href="http://www.naver.com">Naver</a>
+      <a href="http://www.naver.com">Naver</a>
     </div>
 
     <div class="main">
@@ -204,7 +204,8 @@
         <a href="#" onclick="alert('Hello~~')">Alert Hello</a>
         <a href="#" onclick="confirm('Do you love Chocolate?')">Question</a>
         <a href="#" onclick="location.reload(true)">Refresh</a>
-       <a href="#" onclick="">Give me water</a>
+        <a href="#" onclick="">Give me water</a>
+        <a href="/clicker.html">Go to Clicker</a>
       </div>
 
       <div class="content">
@@ -270,10 +271,7 @@
             /><br />
 
             <label for="itemQuantity">Quantity:</label>
-            <input
-              id="itemQuantity"
-              placeholder="Enter item quantity"
-            /><br />
+            <input id="itemQuantity" placeholder="Enter item quantity" /><br />
 
             <button onclick="addItem()">Add Item</button>
           </div>
@@ -408,8 +406,6 @@
         const itemPrice = document.getElementById("itemPrice").value;
         const itemQuantity = document.getElementById("itemQuantity").value;
 
-
-
         if (itemName.length < 3) {
           alert("Item name must be at least 3 characters long.");
           return;
@@ -456,13 +452,13 @@
       }
 
       async function refreshCounter() {
-          const res = await fetch("/counter");
-          const json = await res.json();
+        const res = await fetch("/counter");
+        const json = await res.json();
 
-          document.getElementById("counter").innerHTML = json.counter;
+        document.getElementById("counter").innerHTML = json.counter;
       }
 
-      refreshCounter()
+      refreshCounter();
 
       // setInterval(() => {
       //   refreshCounter()
