@@ -10,7 +10,7 @@
 
 [Html preview](https://htmlviewer.github.io/)
 
-[Karel](https://stanford.edu/~cpiech/karel/learn.html)
+[Karel](https://codeinplace.stanford.edu/public/studenthome)
 
 ### Unit 1: Primitive Types (~8-10 Class Periods)
 - **08/26/2024 (Mon)**
