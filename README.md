@@ -10,6 +10,8 @@
 
 [Html preview](https://htmlviewer.github.io/)
 
+[Karel](https://stanford.edu/~cpiech/karel/learn.html)
+
 ### Unit 1: Primitive Types (~8-10 Class Periods)
 - **08/26/2024 (Mon)**
   - Topic 1.1: Why Programming? Why Java? (1 class period)
