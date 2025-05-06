@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webpage with Dynamic Content Switching</title>
+    <style>
+      body {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+        margin: 0;
+      }
+
+      header {
+        display: flex;
+        background-color: #4caf50;
+        height: 10%;
+        font-size: 1.5rem;
+        text-align: center;
+        color: white;
+        place-content: center;
+        place-items: center;
+      }
+
+      .top-nav {
+        display: flex;
+        justify-content: space-around;
+        background-color: #222;
+      }
+
+      .top-nav a {
+        flex-grow: 1;
+        place-content: center;
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .top-nav a:hover {
+        background-color: #575757;
+      }
+
+      .main {
+        display: flex;
+        flex-grow: 1;
+      }
+
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        background-color: #333;
+        padding-top: 20px;
+      }
+
+      .sidebar a {
+        padding: 15px;
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        display: block;
+      }
+
+      .sidebar a:hover {
+        background-color: #575757;
+      }
+
+      .content {
+        flex-grow: 1;
+        margin: 20px;
+        padding: 0 20px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .content section {
+        display: none;
+        padding: 20px 0px;
+      }
+
+      .content section.active {
+        display: block;
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+        text-align: center;
+      }
+
+      .modal-header,
+      .modal-footer {
+        padding: 10px;
+        color: white;
+        background-color: #4caf50;
+      }
+
+      .modal-close {
+        color: white;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .modal-close:hover,
+      .modal-close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .modal-body {
+        padding: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      .checkboxes,
+      .form-section,
+      .color-picker,
+      .counter-section {
+        margin: 20px 0;
+      }
+      select,
+      input[type="text"],
+      input[type="number"] {
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      #counterDisplay {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Navigation Bar -->
+    <header>
+      <p>Web dev Example 😊😊😊</p>
+    </header>
+
+    <div class="top-nav">
+      <a onclick="showContent('home')">Home</a>
+      <a onclick="showContent('features')">Features</a>
+      <a onclick="showContent('about')">About</a>
+      <a onclick="showContent('modal')">Modal</a>
+      <a href="http://www.naver.com">Naver</a>
+    </div>
+
+    <div class="main">
+      <div class="sidebar">
+        <a href="#" onclick="alert('Hello~~')">Alert Hello</a>
+        <a href="#" onclick="confirm('Do you love Chocolate?')">Question</a>
+        <a href="#" onclick="location.reload(true)">Refresh</a>
+        <a href="#" onclick="">Give me water</a>
+        <a href="/clicker.html">Go to Clicker</a>
+        <a href="/survey_example.html">Survey</a>
+      </div>
+
+      <div class="content">
+        <section id="home" class="active">
+          <h2>Welcome to Snowsore's Web dev Example page :D</h2>
+          <p>You can use tab nav to section</p>
+          <h2>
+            Visit counter :
+            <span id="counter">0</span>
+          </h2>
+        </section>
+
+        <section id="features">
+          <h3>Table of Items</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody id="itemsTable">
+              <tr>
+                <td>Apples</td>
+                <td>$1.20</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>Oranges</td>
+                <td>$0.80</td>
+                <td>15</td>
+              </tr>
+              <tr>
+                <td>Bananas</td>
+                <td>$1.00</td>
+                <td>20</td>
+              </tr>
+              <tr>
+                <td>IPhone 100 Super</td>
+                <td>$1900.00</td>
+                <td>20</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Add New Item to the Table</h3>
+          <div class="form-section">
+            <label for="itemName">Item Name:</label>
+            <input
+              type="text"
+              id="itemName"
+              placeholder="Enter item name"
+              oninput="validateItemName()"
+            />
+            <span id="itemNameError" style="color: red"></span><br />
+
+            <label for="itemPrice">Price ($):</label>
+            <input
+              id="itemPrice"
+              placeholder="Enter item price"
+              step="0.01"
+            /><br />
+
+            <label for="itemQuantity">Quantity:</label>
+            <input id="itemQuantity" placeholder="Enter item quantity" /><br />
+
+            <button onclick="addItem()">Add Item</button>
+          </div>
+        </section>
+
+        <section id="about">
+          <h3>Select Your Country</h3>
+          <div class="form-section">
+            <label for="countrySelect">Country:</label>
+            <select id="countrySelect">
+              <option value="USA">USA</option>
+              <option value="Canada">Canada</option>
+              <option value="Japan">Japan</option>
+              <option value="Germany">Germany</option>
+              <option value="Korea">Korea</option>
+              <option value="China">China</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="9999">10+</option>
+            </select>
+          </div>
+
+          <button onclick="showCountry()">Show Selected Country</button>
+          <p id="countryMessage"></p>
+
+          <h3>Pick a Background Color</h3>
+          <div class="color-picker">
+            <input
+              type="color"
+              id="colorPicker"
+              value="#ffffff"
+              onchange="changeBackgroundColor()"
+            />
+          </div>
+
+          <h3>Interactive Counter</h3>
+          <div class="counter-section">
+            <button onclick="decrementCounter()">-</button>
+            <span id="counterDisplay">0</span>
+            <button onclick="incrementCounter()">+</button>
+          </div>
+
+          <div class="calender-section">
+            <input type="date" />
+          </div>
+        </section>
+
+        <section id="modal">
+          <h2>Modal Example</h2>
+
+          <button onclick="openModal()">Open Modal</button>
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+                <h2>Modal Header</h2>
+              </div>
+              <div class="modal-body">
+                <p>
+                  This is a simple modal popup. You can place additional
+                  information or interactions here.
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button onclick="closeModal()">Close</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      function showContent(contentId) {
+        const sections = document.querySelectorAll(".content section");
+        sections.forEach((section) => {
+          section.classList.remove("active");
+        });
+
+        document.getElementById(contentId).classList.add("active");
+      }
+
+      function openModal() {
+        document.getElementById("myModal").style.display = "block";
+      }
+
+      function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+      }
+
+      window.onclick = function (event) {
+        const modal = document.getElementById("myModal");
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      function validateItemName() {
+        const itemName = document.getElementById("itemName").value;
+        const error = document.getElementById("itemNameError");
+
+        if (itemName.length < 3) {
+          error.textContent = "Item name must be at least 3 characters long.";
+        } else {
+          error.textContent = "";
+        }
+      }
+
+      function handleClick() {
+        let message = "You have ";
+
+        const subscribe = document.getElementById("subscribeNews").checked;
+        const terms = document.getElementById("acceptTerms").checked;
+
+        if (subscribe) {
+          message += "subscribed to the newsletter";
+        } else {
+          message += "not subscribed to the newsletter";
+        }
+
+        if (terms) {
+          message += " and accepted the terms and conditions.";
+        } else {
+          message += " and not accepted the terms and conditions.";
+        }
+
+        document.getElementById("message").innerHTML = message;
+      }
+
+      function addItem() {
+        const itemName = document.getElementById("itemName").value;
+        const itemPrice = document.getElementById("itemPrice").value;
+        const itemQuantity = document.getElementById("itemQuantity").value;
+
+        if (itemName.length < 3) {
+          alert("Item name must be at least 3 characters long.");
+          return;
+        }
+
+        const table = document.getElementById("itemsTable");
+        const newRow = table.insertRow();
+
+        const cell1 = newRow.insertCell(0);
+        const cell2 = newRow.insertCell(1);
+        const cell3 = newRow.insertCell(2);
+
+        cell1.innerHTML = itemName;
+        cell2.innerHTML = `$${parseFloat(itemPrice).toFixed(2)}`;
+        cell3.innerHTML = itemQuantity;
+
+        document.getElementById("itemName").value = "";
+        document.getElementById("itemPrice").value = "";
+        document.getElementById("itemQuantity").value = "";
+      }
+
+      function showCountry() {
+        const country = document.getElementById("countrySelect").value;
+        document.getElementById(
+          "countryMessage"
+        ).innerHTML = `You selected: ${country}`;
+      }
+
+      function changeBackgroundColor() {
+        const color = document.getElementById("colorPicker").value;
+        document.body.style.backgroundColor = color;
+      }
+
+      let counter = 0;
+
+      function incrementCounter() {
+        counter++;
+        document.getElementById("counterDisplay").textContent = counter;
+      }
+
+      function decrementCounter() {
+        counter--;
+        document.getElementById("counterDisplay").textContent = counter;
+      }
+
+      async function refreshCounter() {
+        const res = await fetch("/counter");
+        const json = await res.json();
+
+        document.getElementById("counter").innerHTML = json.counter;
+      }
+
+      refreshCounter();
+
+      // setInterval(() => {
+      //   refreshCounter()
+      // }, 1000)
+    </script>
+  </body>
+</html>

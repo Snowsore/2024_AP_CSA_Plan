@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>改变背景颜色</title>
+</head>
+<body>
+    <button onclick="changeBackgroundColor()">改变背景颜色</button>
+
+    <script>
+        function changeBackgroundColor() {
+            // 定义一些颜色
+            const colors = ["red", "blue", "green", "yellow", "purple"];
+
+            // 随机选择一种颜色
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+            // 将颜色应用到页面背景
+            document.body.style.backgroundColor = randomColor;
+        }
+    </script>
+</body>
+</html>
+    

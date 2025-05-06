@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+            @keyframes rotate_around {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+
+            body {
+                height: 100vh;
+                width: 100vw;
+                margin: 0;
+            }
+
+            .clicker-container {
+                height: 100%;
+                width: 100%;
+                display: grid;
+                place-items: center;
+                place-content: center;
+            }
+            .clicker {
+                position: relative;
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                color: white;
+                background-color: brown;
+                font-size: 4rem;
+                animation: 2s linear 0s infinite rotate_around;
+            }
+
+            .clicker-shadow {
+                position: absolute;
+                left: 5px;
+                color: black;
+            }
+
+            .counter-container {
+                padding: 10px 30px;
+                background-color: black;
+                color: white;
+                border-radius: 10px;
+            }
+
+            .clicker:active {
+                background-color: lightcoral;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="clicker-container">
+            <button onclick="clicked()" class="clicker">
+                <div class="clicker-shadow">Click Me</div>
+                Click Me
+            </button>
+            <br>
+            <p class="counter-container"><span id="counter">0</span></p>
+        </div>
+    </body>
+    <script>
+        var counter = localStorage.getItem("counter");
+        document.getElementById("counter").innerHTML = parseInt(counter)
+
+        function clicked() {
+            counter++;
+            document.getElementById("counter").innerHTML = counter
+            localStorage.setItem("counter", counter);
+
+            document.getElementsByClassName("clicker")[0].style.backgroundColor = randColor()
+
+            document.getElementsByClassName("clicker-container")[0].style.backgroundColor = randColor()
+        }
+
+        const randColor = () =>  {
+            return "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
+        }
+
+    </script>
+</html>
