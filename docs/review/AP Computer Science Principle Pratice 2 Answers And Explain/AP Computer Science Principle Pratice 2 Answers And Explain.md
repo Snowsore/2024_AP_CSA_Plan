@@ -218,3 +218,91 @@ return 10 - (sum % 10);
 68. A,D.
 69. A,C.
 70. A,D.
+
+## ✅ 示例项目：`generatePoem(theme)`
+
+**主题生成诗句程序**
+语言风格接近 Python/Pseudocode，适合用于 AP CSP 提交。
+
+---
+
+### 🔸 代码结构
+
+```python
+# List Section: 用于存储诗歌的单词库
+poemWords = ["sunset", "horizon", "glow", "twilight"]
+
+# Procedure Section: 接收主题并生成一句诗句
+def generatePoem(theme):
+    line = ""
+    if theme == "sunset":
+        words = ["The", "sun", "sets", "in", "a", "golden", "glow"]
+    elif theme == "rain":
+        words = ["Raindrops", "fall", "softly", "on", "the", "window"]
+    else:
+        words = ["This", "theme", "is", "not", "recognized"]
+
+    for word in words:
+        line = line + word + " "
+    return line.strip()
+
+# Input: 用户输入主题
+userInput = "sunset"
+outputLine = generatePoem(userInput)
+print(outputLine)
+```
+
+---
+
+## ✅ 对应 WR 各部分答案（模拟填写）
+
+---
+
+### **WR Q1**
+
+**Describe at least one valid input to your program and what your program does with that input.**
+
+> One valid input to my program is the string `"sunset"`.
+> When the user provides this input, the `generatePoem` procedure uses a conditional to check the input. Since it matches `"sunset"`, the program selects a list of sunset-related words like `"The sun sets in a golden glow"`. Then, using a loop, the program builds a string by combining those words and displays the poem to the user.
+
+---
+
+### **WR Q2(a)**
+
+**Describe what is being accomplished by the code in the body of the iteration statement.**
+
+> The `for` loop in my procedure goes through each word in the list of theme-related words.
+> In each iteration, it adds the current word to a string variable called `line`.
+> This loop builds a complete sentence from the list and returns it to the user.
+
+---
+
+### **WR Q2(b)**
+
+**Write two calls to your procedure that each cause a different code segment in the procedure to execute. Describe the expected behavior of each call.**
+
+```plaintext
+Call 1: generatePoem("sunset")
+Call 2: generatePoem("rain")
+```
+
+> Call 1 executes the first branch of the conditional and builds a poem using sunset-related words.
+> Call 2 executes the second branch and builds a different poem using rain-related words.
+> Each call results in different behavior due to the input causing a different conditional path to run.
+
+---
+
+### **WR Q2(c)**
+
+**Explain an algorithm that uses checkValidity to check whether all elements in your list are considered valid.**
+
+> 1. Create a variable called `allValid` and set it to true.
+> 2. Use a loop to go through each word in the `poemWords` list.
+> 3. For each word, call `checkValidity(word)`.
+> 4. If `checkValidity(word)` returns false, set `allValid` to false and stop checking.
+> 5. After the loop, `allValid` is true only if all words are valid.
+>    This algorithm ensures that the entire list is verified efficiently and stops early if any invalid word is found.
+
+---
+
+需要我把这套题目整理成 PDF、Word 模板，或者中英对照的学生练习手册吗？也可以帮你写出另一个完全不同风格的参考作品（比如小游戏、计算器、日历等）。
