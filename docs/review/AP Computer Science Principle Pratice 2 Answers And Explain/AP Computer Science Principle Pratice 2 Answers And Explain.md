@@ -302,7 +302,3 @@ Call 2: generatePoem("rain")
 > 4. If `checkValidity(word)` returns false, set `allValid` to false and stop checking.
 > 5. After the loop, `allValid` is true only if all words are valid.
 >    This algorithm ensures that the entire list is verified efficiently and stops early if any invalid word is found.
-
----
-
-需要我把这套题目整理成 PDF、Word 模板，或者中英对照的学生练习手册吗？也可以帮你写出另一个完全不同风格的参考作品（比如小游戏、计算器、日历等）。
