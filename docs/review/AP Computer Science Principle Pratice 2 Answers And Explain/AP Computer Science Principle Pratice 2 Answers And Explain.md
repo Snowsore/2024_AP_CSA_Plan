@@ -302,3 +302,47 @@ Call 2: generatePoem("rain")
 > 4. If `checkValidity(word)` returns false, set `allValid` to false and stop checking.
 > 5. After the loop, `allValid` is true only if all words are valid.
 >    This algorithm ensures that the entire list is verified efficiently and stops early if any invalid word is found.
+
+---
+
+## ✅ WR Set 2 解答（基于项目：生成诗句 generatePoem）
+
+---
+
+### **Q1. Identify the expected group of users of your program. Explain how your program addresses at least one concern or interest of the users you identified.**
+
+> The expected users of my program are middle or high school students who enjoy creative writing or poetry.
+> My program addresses their interest in expressing creativity by automatically generating themed poems.
+> By allowing the user to choose a topic like `"sunset"` or `"rain"`, the program personalizes the result and provides inspiration, making the experience fun and engaging without requiring advanced writing skills.
+
+---
+
+### **Q2(a). Describe your conditional statement, including its Boolean expression. Describe what the procedure does in general when the Boolean expression evaluates to false.**
+
+> The first conditional in my `generatePoem` procedure is `if theme == "sunset"`.
+> This Boolean expression checks whether the user's input is `"sunset"`.
+> If it evaluates to false, the program checks the next condition (`elif theme == "rain"`), and if both are false, it goes to the final `else` branch.
+> In the `else` branch, the procedure uses a default list of words that forms the message `"This theme is not recognized"`, letting the user know their input wasn't matched.
+
+---
+
+### **Q2(b). Describe the outcome of your procedure call. Write a new procedure call with at least one different argument value that will produce the same outcome. Explain why.**
+
+```plaintext
+Original: generatePoem("sunset")
+New call: generatePoem("sunset ")
+```
+
+> The original call `generatePoem("sunset")` triggers the `"sunset"` word list and builds a sunset-themed poem.
+> A new call `generatePoem("sunset ")` would not produce the same output unless the input is cleaned (e.g., trimmed).
+> In my current version, these two inputs are not equivalent, so they produce different outcomes.
+> Therefore, **it is not possible** to write a new procedure call with a different argument that produces the exact same outcome, unless the input is pre-processed to ignore whitespace or case.
+
+---
+
+### **Q2(c). Identify the parameter(s) used in this procedure. Explain how your identified parameter(s) use abstraction to manage complexity in your program.**
+
+> The procedure `generatePoem` has one parameter: `theme`.
+> This parameter allows the same function to be reused for different topics, without duplicating the code.
+> By using `theme` as a variable, I can design one procedure that works for many poem styles, depending on user input.
+> This abstraction simplifies the program structure and avoids writing separate procedures for each possible poem.
